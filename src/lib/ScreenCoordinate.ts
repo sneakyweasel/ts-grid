@@ -1,6 +1,4 @@
-/* eslint-disable functional/no-this-expression */
-/* eslint-disable functional/no-class */
-export class ScreenCoordinate {
+export default class ScreenCoordinate {
     readonly x: number;
     readonly y: number;
     

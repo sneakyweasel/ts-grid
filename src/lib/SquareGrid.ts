@@ -1,11 +1,9 @@
-/* eslint-disable functional/no-this-expression */
-/* eslint-disable functional/no-class */
-import { Edge } from './Edge';
-import { ScreenCoordinate } from "./ScreenCoordinate";
-import { Tile } from './Tile';
-import { Vertex } from './Vertex';
+import Edge from './Edge';
+import ScreenCoordinate from "./ScreenCoordinate";
+import Tile from './Tile';
+import Vertex from './Vertex';
 
-export class SquareGrid {
+export default class SquareGrid {
     readonly tile_s = ['']
     readonly edge_s = ['W', 'N']
     readonly vertex_s = ['']
