@@ -1,66 +1,66 @@
 export default class ScreenCoordinate {
-    readonly x: number;
-    readonly y: number;
-    
-    constructor(x: number, y: number) {
-        this.x = x;
-        this.y = y;
-    }
+  readonly x: number;
+  readonly y: number;
 
-    equals(p: ScreenCoordinate): boolean {
-        if (this.x == p.x) {
-            return this.y == p.y;
-        } else {
-            return false;
-        }
-    }
+  constructor(x: number, y: number) {
+    this.x = x;
+    this.y = y;
+  }
 
-    toString(): string {
-        return this.x + "," + this.y;
+  equals(p: ScreenCoordinate): boolean {
+    if (this.x == p.x) {
+      return this.y == p.y;
+    } else {
+      return false;
     }
+  }
 
-    length_squared(): number {
-        return this.x * this.x + this.y * this.y;
-    }
+  toString(): string {
+    return this.x + ',' + this.y;
+  }
 
-    length(): number {
-        return Math.sqrt(this.length_squared());
-    }
+  length_squared(): number {
+    return this.x * this.x + this.y * this.y;
+  }
 
-    normalize(): ScreenCoordinate {
-        const d = this.length();
-        return new ScreenCoordinate(this.x / d, this.y / d);
-    }
+  length(): number {
+    return Math.sqrt(this.length_squared());
+  }
 
-    scale(d: number): ScreenCoordinate {
-        return new ScreenCoordinate(this.x * d, this.y * d);
-    }
+  normalize(): ScreenCoordinate {
+    const d = this.length();
+    return new ScreenCoordinate(this.x / d, this.y / d);
+  }
 
-    rotateLeft(): ScreenCoordinate {
-        return new ScreenCoordinate(this.y, -this.x);
-    }
+  scale(d: number): ScreenCoordinate {
+    return new ScreenCoordinate(this.x * d, this.y * d);
+  }
 
-    rotateRight(): ScreenCoordinate {
-        return new ScreenCoordinate(-this.y, this.x);
-    }
+  rotateLeft(): ScreenCoordinate {
+    return new ScreenCoordinate(this.y, -this.x);
+  }
 
-    add(p: ScreenCoordinate): ScreenCoordinate {
-        return new ScreenCoordinate(this.x + p.x, this.y + p.y);
-    }
+  rotateRight(): ScreenCoordinate {
+    return new ScreenCoordinate(-this.y, this.x);
+  }
 
-    subtract(p: ScreenCoordinate): ScreenCoordinate {
-        return new ScreenCoordinate(this.x - p.x, this.y - p.y);
-    }
+  add(p: ScreenCoordinate): ScreenCoordinate {
+    return new ScreenCoordinate(this.x + p.x, this.y + p.y);
+  }
 
-    dot(p: ScreenCoordinate): number {
-        return this.x * p.x + this.y * p.y;
-    }
+  subtract(p: ScreenCoordinate): ScreenCoordinate {
+    return new ScreenCoordinate(this.x - p.x, this.y - p.y);
+  }
 
-    cross(p: ScreenCoordinate): number {
-        return this.x * p.y - this.y * p.x;
-    }
+  dot(p: ScreenCoordinate): number {
+    return this.x * p.x + this.y * p.y;
+  }
 
-    distance(p: ScreenCoordinate): number {
-        return this.subtract(p).length();
-    }
+  cross(p: ScreenCoordinate): number {
+    return this.x * p.y - this.y * p.x;
+  }
+
+  distance(p: ScreenCoordinate): number {
+    return this.subtract(p).length();
+  }
 }
